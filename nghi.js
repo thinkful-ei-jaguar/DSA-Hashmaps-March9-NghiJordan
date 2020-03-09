@@ -11,7 +11,7 @@ class HashMap {
     const index = this._findSlot(key);
     // If index contains no data, return error
     if (this._hashTable[index] === undefined) {
-      throw new Error("Key error");
+      return false;
     }
     return this._hashTable[index].value;
   }
@@ -21,7 +21,7 @@ class HashMap {
     const loadRatio = (this.length + this._deleted + 1) / this._size;
     // Resize if max load ratio is breached
     if (loadRatio > HashMap.MAX_LOAD_RATIO) {
-      this._resize(this._size + HashMap.SIZE_RATIO);
+      this._resize(this._size * HashMap.SIZE_RATIO);
     }
     // Find the slot where this key should be in
     const index = this._findSlot(key);
@@ -102,5 +102,8 @@ class HashMap {
     return hash >>> 0;
   }
 }
+
+// HashMap.MAX_LOAD_RATIO = 0.5;
+// HashMap.SIZE_RATIO = 3;
 
 module.exports = HashMap;
