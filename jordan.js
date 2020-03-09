@@ -9,7 +9,8 @@ class HashMap {
   get(key) {
     const index = this._findSlot(key);
     if (this._hashTable[index] === undefined) {
-      throw new Error('Key error');
+      return false;
+      
     }
     return this._hashTable[index].value;
   }
@@ -98,3 +99,15 @@ class HashMap {
 }
 
 module.exports = HashMap;
+
+
+// function movieFlights(flight_time, movie_lengths) {
+//   const totalTime= flight_time;
+//   const movie1;
+//   const movie2;
+//   for( i = 0; i <= movie_lengths.length; i++) {
+//     if (movie_lengths[i] < flight_time) {
+//       movie1 = 
+//     }
+//   }
+// }
